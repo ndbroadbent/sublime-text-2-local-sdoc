@@ -60,7 +60,7 @@ class CommandThread(threading.Thread):
             main_thread(self.on_done, e.returncode)
 
 
-class GotoDocumentationCommand(sublime_plugin.TextCommand):
+class GotoDocumentationWithSdocCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         for region in self.view.sel():
             word = self.view.word(region)
@@ -74,17 +74,32 @@ class GotoDocumentationCommand(sublime_plugin.TextCommand):
     def unsupported(self, keyword, scope):
         sublime.status_message("This scope is not supported: %s" % scope.rpartition('.')[2])
 
+    def open_local_sdoc(self, keyword, scope):
+        # Check if file belongs to git repo dir
+        if self.view.file_name().find(os.environ['GIT_REPO_DIR']) == -1:
+            self.display_output("%s is not in %s" % (self.view.file_name(), os.environ['GIT_REPO_DIR']))
+        else:
+            # Get logical path of file
+            project_path = self.view.file_name().replace(os.environ['GIT_REPO_DIR'] + "/", "")
+
+            # Remove /[^/]*$ until we find a match in .sdoc/merged_projects/
+            has_sdoc = False
+            while '/' in project_path:
+                project_path = re.sub(r'\/[^/]*$', '', project_path)
+                if os.path.exists(os.path.join(os.environ['HOME'], '.sdoc', 'merged_projects', project_path, 'index.html')):
+                    has_sdoc = True
+                    break
+
+            if has_sdoc:
+                open_url("http://sdoc.local/projects/%s?q=%s" % (project_path, keyword))
+            else:
+                self.display_output("No sdoc documentation for %s in ~/.sdoc/merged_projects" % project_path)
+
+    rails_doc = controller_doc = ruby_doc = open_local_sdoc
+
+
     def php_doc(self, keyword, scope):
         open_url("http://php.net/%s" % keyword)
-
-    def rails_doc(self, keyword, scope):
-        open_url("http://api.rubyonrails.org/?q=%s" % keyword)
-
-    def controller_doc(self, keyword, scope):
-        open_url("http://api.rubyonrails.org/?q=%s" % keyword)
-
-    def ruby_doc(self, keyword, scope):
-        open_url("http://api.rubyonrails.org/?q=%s" % keyword)
 
     def js_doc(self, keyword, scope):
         open_url("https://developer.mozilla.org/en-US/search?q=%s" % keyword)
@@ -121,7 +136,7 @@ class GotoDocumentationCommand(sublime_plugin.TextCommand):
 
     def display_output(self, output):
         if not hasattr(self, 'output_view'):
-            self.output_view = sublime.active_window().get_output_panel("gotodocumentation")
+            self.output_view = sublime.active_window().get_output_panel("gotodocumentationwithsdoc")
         self.output_view.set_read_only(False)
         edit = self.output_view.begin_edit()
         region = sublime.Region(0, self.output_view.size())
@@ -129,4 +144,4 @@ class GotoDocumentationCommand(sublime_plugin.TextCommand):
         self.output_view.insert(edit, 0, output)
         self.output_view.end_edit(edit)
         self.output_view.set_read_only(True)
-        sublime.active_window().run_command("show_panel", {"panel": "output.gotodocumentation"})
+        sublime.active_window().run_command("show_panel", {"panel": "output.gotodocumentationwithsdoc"})

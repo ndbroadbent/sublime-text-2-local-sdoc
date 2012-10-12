@@ -1,6 +1,6 @@
 [
     {
-        "caption": "Goto Documentation"
-        ,"command": "goto_documentation"
+        "caption": "Goto Documentation With Sdoc",
+        "command": "goto_documentation_with_sdoc"
     }
 ]
