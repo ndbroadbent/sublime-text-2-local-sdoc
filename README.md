@@ -6,7 +6,9 @@ extended to support sdoc generated on your local machine.
 Includes a script to generate sdoc for all your projects, a scheduled task to keep documentation up-to-date,
 and a sinatra server to serve the documentation.
 
-For an even better experience, install my custom sdoc
+The sdoc generation script uses my custom fork of sdoc, called `sdoc_local_editor`.
+This gem will be automatically installed when the script is run.
+
 
 ## Supports
 
