@@ -1,6 +1,12 @@
-# Sublime Text 2 plugin: Goto Documentation
+# Goto Documentation with Sdoc
 
-A command to jump to documentation for the current word.
+A Sublime Text 2 plugin that provides a command to jump to documentation for the current word,
+extended to support sdoc generated on your local machine.
+
+Includes a script to generate sdoc for all your projects, a scheduled task to keep documentation up-to-date,
+and a sinatra server to serve the documentation.
+
+For an even better experience, install my custom sdoc
 
 ## Supports
 
@@ -38,10 +44,6 @@ First, you need to have `git` installed and in your `$PATH`. Afterwards you may 
     $ cd ~/.config/sublime-text-2/Packages/
     $ git clone git://github.com/kemayo/sublime-text-2-goto-documentation.git GotoDocumentation
 
-### Windows 7:
+### Windows 7 / XP:
 
-    Copy the directory to: "C:\Users\<username>\AppData\Roaming\Sublime Text 2\Packages"
-
-### Windows XP:
-
-    Copy the directory to: "C:\Documents and Settings\<username>\Application Data\Sublime Text 2\Packages"
+    Not supported, sorry.

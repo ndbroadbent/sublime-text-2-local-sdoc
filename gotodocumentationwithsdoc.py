@@ -9,6 +9,7 @@ import threading
 import sublime
 import sublime_plugin
 
+REPO_DIR = os.environ['HOME'] + '/code'
 
 def open_url(url):
     sublime.active_window().run_command('open_url', {"url": url})
@@ -76,11 +77,11 @@ class GotoDocumentationWithSdocCommand(sublime_plugin.TextCommand):
 
     def open_local_sdoc(self, keyword, scope):
         # Check if file belongs to git repo dir
-        if self.view.file_name().find(os.environ['GIT_REPO_DIR']) == -1:
-            self.display_output("%s is not in %s" % (self.view.file_name(), os.environ['GIT_REPO_DIR']))
+        if self.view.file_name().find(REPO_DIR) == -1:
+            self.display_output("%s is not in %s" % (self.view.file_name(), REPO_DIR))
         else:
             # Get logical path of file
-            project_path = self.view.file_name().replace(os.environ['GIT_REPO_DIR'] + "/", "")
+            project_path = self.view.file_name().replace(REPO_DIR + "/", "")
 
             # Remove /[^/]*$ until we find a match in .sdoc/merged_projects/
             has_sdoc = False

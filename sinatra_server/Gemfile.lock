@@ -2,7 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     backports (2.6.4)
-    daemons (1.1.9)
     eventmachine (1.0.0)
     rack (1.4.1)
     rack-protection (1.2.0)
@@ -26,6 +25,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  daemons
   sinatra
   sinatra-contrib

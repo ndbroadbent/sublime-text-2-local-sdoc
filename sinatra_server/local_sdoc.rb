@@ -1,5 +1,8 @@
 # app.rb
-set :haml, :format => :html5
+require 'shellwords'
+require "pty"
+
+REPO_DIR="#{ENV['HOME']}/code"
 
 helpers do
   def sdoc_root
@@ -8,6 +11,10 @@ helpers do
 
   def file_path(path)
     File.expand_path(File.join(sdoc_root, path))
+  end
+
+  def code_path(path)
+    File.expand_path(File.join(REPO_DIR, path))
   end
 end
 
@@ -36,4 +43,12 @@ end
 
 get "/favicon.ico" do
   404
+end
+
+post "/open_editor/" do
+  if params[:file]
+    `export DISPLAY=:0; sublime-text-2 #{params[:file].shellescape}:#{(params[:line] || "1").shellescape}`
+  else
+    "No file given."
+  end
 end
