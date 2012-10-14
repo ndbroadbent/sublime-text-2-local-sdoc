@@ -10,7 +10,7 @@ Remember when you didn't have a `~/.gemrc` file containing `gem: --no-ri --no-rd
 
 ![Aint nobody got time for that](http://i.imgur.com/GrI0m.gif)
 
-All of the documentation will be generated as a background task scheduled by cron, so you don't need to wait for anything.
+So no, you won't need to generate documentation for your gems whenever you install them. All of the documentation will be generated as a background task scheduled by cron, so you don't need to wait for anything.
 
 The SDoc generation script generates complete, searchable code documentation for your projects. This includes your project code, it's Ruby version (either from `.rvmrc` or default ruby), and all of your project's gem dependencies. It uses my custom fork of sdoc called `sdoc_local_editor` (which will be automatically installed when the script is run). The gem is modified to add 'Open in Sublime Text 2' links to the source sections. Clicking these links will send a `POST` request to the Sinatra server, which will open the relevant file/line in Sublime Text 2.
 
