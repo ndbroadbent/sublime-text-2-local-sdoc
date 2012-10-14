@@ -113,7 +113,7 @@ mkdir -p $HOME/.sdoc && ! [ -e $HOME/.sdoc/GENERATING ] && touch $HOME/.sdoc/GEN
 
 <hr/>
 
-# Original Documentation from Goto Documentation Plugin:
+# Original README from forked Goto Documentation Plugin:
 
 <hr/>
 
