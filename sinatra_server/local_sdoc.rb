@@ -18,6 +18,16 @@ helpers do
   end
 end
 
+get "/" do
+  @projects = Dir.glob("#{sdoc_root}/**/index.html").map { |index|
+    unless index.include?("panel/")
+      index.sub("#{sdoc_root}/", '').sub(/\/index\.html$/, '')
+    end
+  }.compact
+
+  haml :index
+end
+
 # Serve files from project directory
 get "/projects/*" do
   logical_path = params[:splat].first

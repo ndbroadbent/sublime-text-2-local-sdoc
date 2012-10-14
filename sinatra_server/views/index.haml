@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %title Sdoc Projects
+  %body
+    %h1 Sdoc Projects
+    %ul
+      - @projects.each do |project|
+        %li
+          %a{:href => "projects/#{project}/"}= project
