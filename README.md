@@ -1,4 +1,4 @@
-# Complete Project Documentation with Sdoc
+# Complete Ruby/Rails Project Documentation with Sdoc
 
 <center><a href="http://www.youtube.com/watch?v=_IM-qA_SgAk" target="_blank"><img src="http://i.imgur.com/WnihU.png"></a></center>
 
