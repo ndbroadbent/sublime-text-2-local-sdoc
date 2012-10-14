@@ -109,9 +109,7 @@ mkdir -p $HOME/.sdoc && ! [ -e $HOME/.sdoc/GENERATING ] && touch $HOME/.sdoc/GEN
 ```
 
 
-### All done!
-
-This is one of those projects
+### Enjoy!
 
 <hr/>
 
