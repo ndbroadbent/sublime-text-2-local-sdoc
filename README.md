@@ -1,23 +1,23 @@
 # Complete Project Documentation with Sdoc
 
-This project contains a Sublime Text 2 plugin, sdoc generation script to be run via cron, and a Sinatra server to both serve documentation and open files in your text editor.
+This project contains a Sublime Text 2 plugin, sdoc generation script to be run via cron, and a Sinatra server to serve documentation and open files in your text editor.
 
-From Sublime Text 2, you will be able to place your cursor on a keyword, and jump to the project's sdoc documentation in your browser. While viewing the documentation in your browser, you can click 'open in Sublime Text 2' to view the source of a method.
+From Sublime Text 2, you will be able to place your cursor on a keyword, and jump to the project's sdoc documentation in your browser. While viewing the documentation in your browser, you can click '**Open in Sublime Text 2**' to view the source of a method.
 
 Remember when you didn't have a `~/.gemrc` file containing `gem: --no-ri --no-rdoc`, and you'd have to generate `rdoc` and `ri` every time you installed a gem?
 
 ![Aint nobody got time for that](http://i.imgur.com/GrI0m.gif)
 
-All of the documentation will be generated as a background task scheduled by cron, so you won't ever need to wait for anything.
+All of the documentation will be generated as a background task scheduled by cron, so you don't need to wait for anything.
 
-The SDoc generation script generates complete, searchable code documentation for your projects. This includes your project code, it's Ruby version (either from `.rvmrc` or default ruby), and all of your project's gem dependencies. It also uses my custom fork of sdoc called `sdoc_local_editor`, which will be automatically installed. This adds links to the source sections to 'Open in <editor>'. Clicking this link sends a `POST` request to the Sinatra server, which will open the relevant file/line in Sublime Text 2.
+The SDoc generation script generates complete, searchable code documentation for your projects. This includes your project code, it's Ruby version (either from `.rvmrc` or default ruby), and all of your project's gem dependencies. It uses my custom fork of sdoc called `sdoc_local_editor` (which will be automatically installed when the script is run). The gem is modified to add 'Open in Sublime Text 2' links to the source sections. Clicking these links will send a `POST` request to the Sinatra server, which will open the relevant file/line in Sublime Text 2.
 
-All documentation is generated and cached to `~/.sdoc`. This directory contains documentation for `rubies`, `gems`, and `projects`, which are then merged into `merged_projects`.
+All documentation is generated and cached to `~/.sdoc`. This directory contains cached documentation for `rubies`, `gems`, and `projects`, which are then merged into `merged_projects`. Documentation only needs to be generated once for a given ruby or gem version.
 
 
 # Requirements
 
-* Ubuntu Linux (for now)
+* Ubuntu Linux
 * RVM
 * Sublime Text 2
 * [SCM Breeze](https://github.com/ndbroadbent/scm_breeze) with `git_index` configured
