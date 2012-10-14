@@ -96,7 +96,8 @@ class GotoDocumentationWithSdocCommand(sublime_plugin.TextCommand):
             else:
                 self.display_output("No sdoc documentation for %s in ~/.sdoc/merged_projects" % project_path)
 
-    rails_doc = controller_doc = ruby_doc = open_local_sdoc
+    # Open all ruby/rails/templates as local sdoc
+    erb_doc = haml_doc = rails_doc = controller_doc = ruby_doc = open_local_sdoc
 
 
     def php_doc(self, keyword, scope):
