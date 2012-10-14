@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/ndbroadbent/sdoc.git
-  revision: 2848654697ee045f1056e12bd3440779e21533c1
-  branch: local_editor
-  specs:
-    sdoc (0.3.17)
-      json (>= 1.1.3)
-      rdoc (~> 3.10)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -19,6 +10,9 @@ GEM
     multi_json (1.3.6)
     rdoc (3.12)
       json (~> 1.4)
+    sdoc_local_editor (0.3.17)
+      json (>= 1.1.3)
+      rdoc (~> 3.10)
     whenever (0.7.3)
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
@@ -27,5 +21,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  sdoc!
+  sdoc_local_editor
   whenever
