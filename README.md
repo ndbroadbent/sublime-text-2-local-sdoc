@@ -1,5 +1,7 @@
 # Complete Project Documentation with Sdoc
 
+<iframe width="560" height="315" src="http://www.youtube.com/embed/_IM-qA_SgAk" frameborder="0" allowfullscreen></iframe>
+
 This project contains a Sublime Text 2 plugin, sdoc generation script to be run via cron, and a Sinatra server to serve documentation and open files in your text editor.
 
 From Sublime Text 2, you will be able to place your cursor on a keyword, and jump to the project's sdoc documentation in your browser. While viewing the documentation in your browser, you can click '**Open in Sublime Text 2**' to view the source of a method.
