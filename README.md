@@ -1,6 +1,6 @@
 # Complete Project Documentation with Sdoc
 
-<object width="560" height="315"><param name="movie" value="http://www.youtube.com/v/_IM-qA_SgAk?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/_IM-qA_SgAk?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+<center><a href="http://www.youtube.com/watch?v=_IM-qA_SgAk" target="_blank"><img src="http://i.imgur.com/WnihU.png"></a></center>
 
 This project contains a Sublime Text 2 plugin, sdoc generation script to be run via cron, and a Sinatra server to serve documentation and open files in your text editor.
 
